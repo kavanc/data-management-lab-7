@@ -34,7 +34,7 @@ python setup.py build
 python setup.py install
 ```
 
-- Install [MySQL Server](https://dev.mysql.com/downloads/mysql/)
+- Install [MySQL Server](https://dev.mysql.com/downloads/mysql/) (Skip if alrady installed)
 
 
 # Linux Setup
@@ -51,7 +51,7 @@ python setup.py build
 python setup.py install
 ```
 
-# If MySQL Server and Database are already installed before from previous lab, skip to PyCharm IDE setup.
+# If MySQL Server and Database are already installed before from previous lab, skip to [MySQL Schema Setup](#mysql-schema-setup).
 # Just make sure that you have the follwing user details
 | Username           | Password  |
 | ------------- | ----- |
