@@ -73,9 +73,9 @@ python setup.py install
 | ------------- | ----- |
 | root | root |
 
-![creating teams](img/create_teams_table.JPG)
+![creating user](img/user-creation.PNG)
 
-![Creating players](img/create_players_table.JPG)
+![user created](img/user-created.PNG)
 
 # MySQL Schema Setup
 - When creating a database, make sure to create a database with the following info
@@ -89,9 +89,9 @@ python setup.py install
 
 - Use the .sql scripts in the db/schema folder to create the tables. Run as queries.
 
-![table created](img/table-creation-team.PNG)
+![table created](img/create_teams_table.JPG)
 
-![table created](img/table-creation-players.PNG)
+![table created](img/create_players_table.JPG)
 
 ### Additional MySQL Setup
 
