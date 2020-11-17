@@ -21,7 +21,7 @@ db = connection.Connection()
 def index():
     class SelectTeamForm(Form):
         teams = db.get_teams()
-        name = SelectField(coerce=int, choices=teams, default=1610612737)
+        name = SelectField(coerce=int, choices=teams)
 
     form = SelectTeamForm()
 
@@ -39,7 +39,7 @@ def index():
 def player():
     class SelectPlayerForm(Form):
         team_id = session['TEAM_ID']
-        players = db.get_players(team_id)
+        players = db.get_players('team_id')
         name = SelectField(coerce=int, choices=players)
 
     form = SelectPlayerForm()
@@ -57,7 +57,7 @@ def stats():
     player_id = session['PLAYER_ID']
     stats = db.get_stats(player_id)[0]
 
-    return render_template("stats.html", name=stats[1], blocks=stats[9], drfgm=stats[11], drfga=stats[12], drfgpct=stats[13])
+    return render_template("stats.html", name=stats[1], blocks=stats[2], drfgm=stats[3], drfga=stats[4], drfgpct=stats[1])
 
 # create simple api that takes in id and response with stats of said player
 # ex player <id> = 201960
@@ -66,6 +66,7 @@ def api(id):
     player_id = id
     stats = db.get_stats(player_id)
     return jsonify(stats)
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='localhost')

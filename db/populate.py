@@ -1,34 +1,44 @@
-import pandas
-import requests
+import pandas as pd
 from sqlalchemy import create_engine
 from urls import urls
 
 
 class Populate:
     def __init__(self):
-        self.engine = create_engine('mysql+mysqldb://root:root@localhost/nba')
+        self.engine = create_engine(
+            "mysql+pymysql://{user}:{pw}@localhost/{db}".format(user="root", pw="root", db="nba"))
 
     def populate(self):
-        # gets players and writes to sql, replacing if table exists
-        players = get_dataframe_from_response(urls[0])
-        players.to_sql('players', con=self.engine, if_exists='replace', index=False)
-
-        # gets teams and writes to sql, replace if table exists (if you want to append to the table, use if_exists='append')
-        teams = get_dataframe_from_response(urls[1])
+        # gets teams and writes to sql
+        teams = get_dataframe_from_response_teams(urls[1])
         # I only want to store certain columns
-        teams = teams.loc[:, ['TEAM_ID', 'TEAM_NAME']]
-        teams.to_sql('teams', con=self.engine, if_exists='replace', index=False)
+        teams.to_sql('teams', con=self.engine, if_exists='replace', chunksize=1000)
 
-def get_dataframe_from_response(url):
-    response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
-    # any response other than 200 is an error
-    while response.status_code != 200:
-        response = requests.get(url)
-    headers = response.json()['resultSets'][0]['headers']
-    data = response.json()['resultSets'][0]['rowSet']
-    frame = pandas.DataFrame(data, columns=headers)
+        # gets players and writes to sql, replacing if table exists
+        players = get_dataframe_from_response_players(urls[0])
+        players.to_sql('players', con=self.engine, if_exists='replace', chunksize=1000)
+
+
+def get_dataframe_from_response_teams(url):
+    data = pd.read_json(url)
+
+    frame = pd.DataFrame(data[['teamId', 'teamName']])
+
+    print(frame)
 
     return frame
 
+
+def get_dataframe_from_response_players(url):
+    data = pd.read_json(url)
+
+    frame = pd.DataFrame(data[['firstName', 'lastName', 'playerId', 'teamId']])
+
+    print(frame)
+
+    return frame
+
+
 populate = Populate()
+
 populate.populate()
