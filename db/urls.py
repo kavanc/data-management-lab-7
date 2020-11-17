@@ -1,5 +1,5 @@
 # overall
 urls = [
-      'https://github.com/bttmly/nba/raw/master/data/players.json',
-      'https://github.com/bttmly/nba/raw/master/data/teams.json'
+      'https://raw.githubusercontent.com/Badr1600/data-management-lab-7/master/db/data/players.json',
+      'https://raw.githubusercontent.com/Badr1600/data-management-lab-7/master/db/data/teams.json'
       ]
