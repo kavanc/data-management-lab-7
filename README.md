@@ -1,4 +1,4 @@
-# data-management-lab-7
+# data-management-lab-7 FALL 2020
 Repository to hold setup instructions for lab 7.
 
 # Setup
@@ -17,8 +17,9 @@ Repository to hold setup instructions for lab 7.
 ```
 git clone https://github.com/sealneaward/data-management-lab-7
 ```
-- Install [Python 2.7 (Recommended)](https://www.python.org/downloads/release/python-2712/)
+- Install [Python 2.7 (Recommended)](https://www.python.org/downloads/release/python-2718/)
 - Add Python and Python scripts to path variable, **no spaces**
+- Follow this [link](https://datascience.com.co/how-to-install-python-2-7-and-3-6-in-windows-10-add-python-path-281e7eae62a) for more details about installing python 2.7.
 
 ![path](img/path.PNG)
 
@@ -49,6 +50,11 @@ python setup.py build
 python setup.py install
 ```
 
+# If MySQL Server and Database are already installed before from previous lab, skip to PyCharm IDE setup.
+# Just make sure that you have the follwing user details
+| Username           | Password  |
+| ------------- | ----- |
+| root | root |
 
 # MySQL Database Setup
 - Install [MySQL](http://dev.mysql.com/downloads/installer/)
