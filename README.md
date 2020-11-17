@@ -1,4 +1,5 @@
 # data-management-lab-7 FALL 2020
+Cloned from original repositery [link](https://github.com/sealneaward/data-management-lab-7)
 Repository to hold setup instructions for lab 7.
 
 # Setup
