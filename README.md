@@ -73,9 +73,9 @@ python setup.py install
 | ------------- | ----- |
 | root | root |
 
-![creating user](img/user-creation.PNG)
+![creating teams](img/create_teams_table.JPG)
 
-![user created](img/user-created.PNG)
+![Creating players](img/create_players_table.JPG)
 
 # MySQL Schema Setup
 - When creating a database, make sure to create a database with the following info
